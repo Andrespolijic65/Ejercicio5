@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--Elementos Simples-->
+    <xs:element name="apellido2" type="xs:string"/>
+    <xs:element name="apellido1" type="xs:string"/>
+    <xs:element name="nombre" type="xs:string"/>
+    <xs:element name="nrp" type="xs:string"/>
+    <xs:element name="dni" type="xs:string"/>
+
+    <!--Atributo-->
+    <xs:attribute name="codigo">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+
+
+    <!--Elemento complejo profesor-->
+    <xs:element name="profesor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nrp"/>
+                <xs:element ref="nombre"/>
+                <xs:element ref="apellido1"/>
+                <xs:element ref="apellido2" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Elemento Raiz Listacursos -->
+    <xs:element name="listacursos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cursos" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+    <!--Elemento complejo cursos-->
+    <xs:element name="cursos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="alumnos" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+
+        </xs:complexType>
+    </xs:element>
+
+    <!--Elemento complejo alumnos-->
+    <xs:element name="alumnos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dni"/>
+                <xs:element ref="nombre"/>
+                <xs:element ref="apellido1"/>
+                <xs:element ref="apellido2" minOccurs="0"/>
+                <xs:element ref="listaasignaturas"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Elemento complejo lista asignaturas-->
+    <xs:element name="listaasignaturas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="asignatura" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Elemento complejo asignatura-->
+    <xs:element name="asignatura">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="profesor"/>
+            </xs:sequence>
+            <xs:attribute ref="codigo"/>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

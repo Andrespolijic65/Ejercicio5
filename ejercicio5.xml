@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listacursos SYSTEM "ejercicio5.dtd">
+<listacursos>
+    <cursos>
+        <alumnos>
+            <dni> 1245678 </dni>
+            <nombre>Andres</nombre>
+            <apellido1>Gonzales </apellido1>
+            <apellido2>Molina</apellido2>
+            <listaasignaturas>
+               <asignatura codigo="AS1">
+                   <nombre>Base de datos 2</nombre>
+                  <profesor>
+                      <nrp> 34567 </nrp>
+                      <nombre>Felipe </nombre>
+                      <apellido1>Rodriguez </apellido1>
+                  </profesor>
+               </asignatura>
+            </listaasignaturas>
+        </alumnos>
+    </cursos>
+</listacursos>
+
+
